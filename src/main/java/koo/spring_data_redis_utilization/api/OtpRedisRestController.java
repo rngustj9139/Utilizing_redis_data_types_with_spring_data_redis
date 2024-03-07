@@ -22,8 +22,8 @@ public class OtpRedisRestController {
     }
 
     @PostMapping("/api/otp/verify")
-    public Boolean verifyOtp(@RequestBody OtpVerifyRequestDto otpVerifyRequestDto) {
-        Boolean result = otpRedisService.verifyOtp(otpVerifyRequestDto);
+    public String verifyOtp(@RequestBody OtpVerifyRequestDto otpVerifyRequestDto) {
+        String result = otpRedisService.verifyOtp(otpVerifyRequestDto);
 
         return result;
     }

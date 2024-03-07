@@ -1,8 +1,10 @@
 package koo.spring_data_redis_utilization.dto;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 public class OtpGenerateRequestDto {
 
     private String phoneNumber;

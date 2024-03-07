@@ -19,8 +19,8 @@ public class OtpRedisService {
         return otpNumber;
     }
 
-    public Boolean verifyOtp(OtpVerifyRequestDto otpVerifyRequestDto) {
-        Boolean result = otpRedisRepository.verifyOtp(otpVerifyRequestDto);
+    public String verifyOtp(OtpVerifyRequestDto otpVerifyRequestDto) {
+        String result = otpRedisRepository.verifyOtp(otpVerifyRequestDto);
 
         return result;
     }

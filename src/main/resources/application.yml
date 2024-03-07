@@ -1,0 +1,20 @@
+# open cmd
+# docker pull mysql
+# docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=1234 --name mysql mysql
+# docker ps
+# docker exec -it mysql bash
+# mysql -u root -p
+# create database spring_data_redis_example;
+# use spring_data_redis_example;
+#```
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/spring_data_redis_example
+    username: root
+    password: 1234

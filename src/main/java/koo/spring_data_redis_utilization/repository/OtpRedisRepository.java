@@ -1,7 +1,6 @@
 package koo.spring_data_redis_utilization.repository;
 
-import koo.spring_data_redis_utilization.dto.OtpRequestDto;
-import lombok.AllArgsConstructor;
+import koo.spring_data_redis_utilization.dto.OtpVerifyRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Repository;
@@ -43,12 +42,12 @@ public class OtpRedisRepository {
         redisTemplate.expire(phoneNumber + ":otp", 60, TimeUnit.SECONDS); // 만료 시간 적용
     }
 
-    public Boolean verifyOtp(OtpRequestDto otpRequestDto) {
+    public Boolean verifyOtp(OtpVerifyRequestDto otpVerifyRequestDto) {
         String respondedOtpNumber = redisTemplate
                 .opsForSet()
-                .pop(otpRequestDto.getPhoneNumber() + ":otp");
+                .pop(otpVerifyRequestDto.getPhoneNumber() + ":otp");
 
-        if (respondedOtpNumber != otpRequestDto.getOtpNumber()) {
+        if (respondedOtpNumber != otpVerifyRequestDto.getOtpNumber()) {
             return false;
         }
 

@@ -1,6 +1,7 @@
 package koo.spring_data_redis_utilization.api;
 
-import koo.spring_data_redis_utilization.dto.OtpRequestDto;
+import koo.spring_data_redis_utilization.dto.OtpGenerateRequestDto;
+import koo.spring_data_redis_utilization.dto.OtpVerifyRequestDto;
 import koo.spring_data_redis_utilization.service.OtpRedisService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,16 +14,16 @@ public class OtpRedisRestController {
 
     private final OtpRedisService otpRedisService;
 
-    @PostMapping()
-    public String generateOtp(String phoneNumber) {
-        String otpNumber = otpRedisService.generateOtp(phoneNumber);
+    @PostMapping("/api/otp/generate")
+    public String generateOtp(@RequestBody OtpGenerateRequestDto otpGenerateRequestDto) {
+        String otpNumber = otpRedisService.generateOtp(otpGenerateRequestDto.getPhoneNumber());
 
         return otpNumber;
     }
 
-    @PostMapping
-    public Boolean verifyOtp(@RequestBody OtpRequestDto otpRequestDto) {
-        Boolean result = otpRedisService.verifyOtp(otpRequestDto);
+    @PostMapping("/api/otp/verify")
+    public Boolean verifyOtp(@RequestBody OtpVerifyRequestDto otpVerifyRequestDto) {
+        Boolean result = otpRedisService.verifyOtp(otpVerifyRequestDto);
 
         return result;
     }

@@ -7,6 +7,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 /**
  * OTP(One Time Password, 임시비밀번호) 기능을 구현하기 위한 Redis Repository
@@ -34,10 +35,12 @@ public class OtpRedisRepository {
         return otpNumber;
     }
 
-    public Long addOtp(String phoneNumber, String otpNumber) {
-        return redisTemplate
+    public void addOtp(String phoneNumber, String otpNumber) {
+        redisTemplate
                 .opsForSet() // 중복되는 key를 가진 데이터를 허용하지 않으며 순서가 없는 Redis의 SET 자료구조 이용 (.opsForValue는 String 자료구조를 위한 것임)
                 .add(phoneNumber + ":otp", otpNumber.toString());
+
+        redisTemplate.expire(phoneNumber + ":otp", 60, TimeUnit.SECONDS); // 만료 시간 적용
     }
 
     public Boolean verifyOtp(OtpRequestDto otpRequestDto) {

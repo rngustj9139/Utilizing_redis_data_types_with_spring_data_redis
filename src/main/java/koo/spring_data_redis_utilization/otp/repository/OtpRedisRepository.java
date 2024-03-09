@@ -1,6 +1,6 @@
-package koo.spring_data_redis_utilization.repository;
+package koo.spring_data_redis_utilization.otp.repository;
 
-import koo.spring_data_redis_utilization.dto.OtpVerifyRequestDto;
+import koo.spring_data_redis_utilization.otp.dto.OtpVerifyRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Repository;

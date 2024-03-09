@@ -1,4 +1,4 @@
-package koo.spring_data_redis_utilization.dto;
+package koo.spring_data_redis_utilization.otp.dto;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -1,7 +1,7 @@
-package koo.spring_data_redis_utilization.service;
+package koo.spring_data_redis_utilization.otp.service;
 
-import koo.spring_data_redis_utilization.dto.OtpVerifyRequestDto;
-import koo.spring_data_redis_utilization.repository.OtpRedisRepository;
+import koo.spring_data_redis_utilization.otp.dto.OtpVerifyRequestDto;
+import koo.spring_data_redis_utilization.otp.repository.OtpRedisRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

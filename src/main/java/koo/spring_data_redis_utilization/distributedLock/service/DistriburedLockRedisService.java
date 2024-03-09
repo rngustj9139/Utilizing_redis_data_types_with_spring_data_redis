@@ -1,4 +1,4 @@
-package koo.spring_data_redis_utilization.service;
+package koo.spring_data_redis_utilization.distributedLock.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

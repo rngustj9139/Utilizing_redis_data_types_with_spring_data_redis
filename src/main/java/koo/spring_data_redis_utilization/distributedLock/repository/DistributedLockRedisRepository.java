@@ -1,4 +1,4 @@
-package koo.spring_data_redis_utilization.repository;
+package koo.spring_data_redis_utilization.distributedLock.repository;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.RedisTemplate;

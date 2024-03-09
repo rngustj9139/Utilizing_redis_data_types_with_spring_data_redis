@@ -1,4 +1,4 @@
-package koo.spring_data_redis_utilization.domain;
+package koo.spring_data_redis_utilization.distributedLock.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,6 +19,10 @@ public class Balance {
 
     private Long balanceQuantity;
 
+    public Long getBalanceQuantity() {
+        return balanceQuantity;
+    }
+
     public void increase(Long requestQuantity) {
         balanceQuantity += requestQuantity;
     }
@@ -28,7 +32,7 @@ public class Balance {
             return;
         }
 
-        balanceQuantity -= requestQuantity
+        balanceQuantity -= requestQuantity;
     }
 
 }

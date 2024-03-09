@@ -1,8 +1,8 @@
-package koo.spring_data_redis_utilization.api;
+package koo.spring_data_redis_utilization.otp.api;
 
-import koo.spring_data_redis_utilization.dto.OtpGenerateRequestDto;
-import koo.spring_data_redis_utilization.dto.OtpVerifyRequestDto;
-import koo.spring_data_redis_utilization.service.OtpRedisService;
+import koo.spring_data_redis_utilization.otp.dto.OtpGenerateRequestDto;
+import koo.spring_data_redis_utilization.otp.dto.OtpVerifyRequestDto;
+import koo.spring_data_redis_utilization.otp.service.OtpRedisService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

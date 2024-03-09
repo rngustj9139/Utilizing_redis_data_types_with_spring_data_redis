@@ -17,6 +17,7 @@ public class Balance {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private Long userId; // 계좌를 소유한 고객의 id
     private Long balanceQuantity;
 
     public Long getBalanceQuantity() {

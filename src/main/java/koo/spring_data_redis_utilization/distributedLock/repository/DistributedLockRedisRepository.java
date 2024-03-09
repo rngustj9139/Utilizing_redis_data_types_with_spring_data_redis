@@ -10,15 +10,15 @@ public class DistributedLockRedisRepository { // Distributed Lock(분산 락을 
 
     private final RedisTemplate<String, Integer> redisTemplate;
 
-    public Boolean lock() {
+    public Boolean lock(Long userId) {
         return redisTemplate
                 .opsForValue() // String 자료구조 이용
-                .setIfAbsent("lock", 1); // SET lock 1 NX (해당 키가 존재하지 않아야만 생성 가능)
+                .setIfAbsent(userId.toString(), 1); // SET lock 1 NX (해당 키가 존재하지 않아야만 생성 가능)
     }
 
-    public Boolean unlick() {
+    public Boolean unlock(Long userId) {
         return redisTemplate
-                .delete("lock");
+                .delete(userId.toString());
     }
 
 }

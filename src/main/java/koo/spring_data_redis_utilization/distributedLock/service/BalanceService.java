@@ -13,16 +13,20 @@ public class BalanceService {
 
     private final BalanceRepository balanceRepository;
 
-    public void increase(Long userId, Long requestQuantity) {
+    public Boolean increase(Long userId, Long requestQuantity) {
         Balance balance = balanceRepository.findById(userId).orElseThrow();
         balance.increase(requestQuantity);
         balanceRepository.saveAndFlush(balance);
+
+        return true;
     }
 
-    public void decrease(Long userId, Long requestQuantity) {
+    public Boolean decrease(Long userId, Long requestQuantity) {
         Balance balance = balanceRepository.findById(userId).orElseThrow();
         balance.decrease(requestQuantity);
         balanceRepository.saveAndFlush(balance);
+
+        return true;
     }
 
 }

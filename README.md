@@ -7,3 +7,4 @@
 
 # [기능3 - Fixed Window Rate Limiter(비율 계산기) 기능]
 ![image](https://github.com/rngustj9139/Utilizing_redis_data_types_with_spring_data_redis/assets/43543906/ec85be9a-bcbd-4cd0-9ca8-daeab6e707ff)
+![image](https://github.com/rngustj9139/Utilizing_redis_data_types_with_spring_data_redis/assets/43543906/79764687-ef7c-4881-a62b-accd32b0389b)

@@ -13,9 +13,10 @@ import java.util.concurrent.TimeUnit;
 public class RateLimiterRedisRepository { // Fixed Window Rate Limiter(비울 계산기) => 시스템 안정성/보안을 위해 고정된 시간 (ex: 1분) 동안의 요청의 수를 제한하는 기법
 
     private final RedisTemplate<String, String> redisTemplate;
-    private Long increment = 0L;
 
     public Long checkRate(Ip ip) {
+        Long increment = 0L;
+
         String requestCount = redisTemplate
                 .opsForValue()
                 .get(ip.getUserIp() + ":1");// 0.0.0.0:1 => ip와 고정시간을 의미 (1분)

@@ -24,6 +24,7 @@ public class IpRestController {
     @PostMapping("/api/ip")
     public ResponseEntity<String> ipRequest(@RequestBody IpRequestDto ipRequestDto, HttpServletRequest httpServletRequest) {
         String userIp = httpServletRequest.getRemoteAddr();// 서버로 요청한 클라이언트의 ip 가져오기
+        log.info();
 
         Ip ip = new Ip();
         ip.setUserIp(userIp);

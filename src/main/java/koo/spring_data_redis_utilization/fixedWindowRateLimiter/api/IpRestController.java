@@ -5,6 +5,7 @@ import koo.spring_data_redis_utilization.fixedWindowRateLimiter.domain.Ip;
 import koo.spring_data_redis_utilization.fixedWindowRateLimiter.dto.IpRequestDto;
 import koo.spring_data_redis_utilization.fixedWindowRateLimiter.service.RateLimiterService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +18,7 @@ import java.time.LocalTime;
 
 @RestController
 @RequiredArgsConstructor
+@Slf4j // 로깅 사용
 public class IpRestController {
 
     private final RateLimiterService rateLimiterService;
@@ -24,7 +26,7 @@ public class IpRestController {
     @PostMapping("/api/ip")
     public ResponseEntity<String> ipRequest(@RequestBody IpRequestDto ipRequestDto, HttpServletRequest httpServletRequest) {
         String userIp = httpServletRequest.getRemoteAddr();// 서버로 요청한 클라이언트의 ip 가져오기
-        log.info();
+        log.info("userIp: {}", userIp);
 
         Ip ip = new Ip();
         ip.setUserIp(userIp);
@@ -34,6 +36,7 @@ public class IpRestController {
         Boolean requestEligibility = rateLimiterService.checkRate(ip);
 
         if (!requestEligibility) {
+            log.info("Too many request from: {}", userIp);
             return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS).build();
         }
 

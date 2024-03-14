@@ -9,10 +9,6 @@ public class FeedSaveRequestDto {
 
     public Long userId;
 
-    public Long likeFeedActivityId;
-
-    public Integer likeCount; // 좋아요 수
-
     public String content; // 작성글 내용
 
 }

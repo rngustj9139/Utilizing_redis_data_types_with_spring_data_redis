@@ -1,11 +1,7 @@
-package koo.spring_data_redis_utilization.snsActivityFeed.domain;
+package koo.spring_data_redis_utilization.snsActivityFeed.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
-
-import javax.annotation.processing.Generated;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @NoArgsConstructor

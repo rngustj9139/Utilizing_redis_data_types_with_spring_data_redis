@@ -1,8 +1,10 @@
-package koo.spring_data_redis_utilization.snsActivityFeed.domain;
+package koo.spring_data_redis_utilization.snsActivityFeed.domain.entity;
 
 import jakarta.persistence.*;
+import lombok.NoArgsConstructor;
 
 @Entity
+@NoArgsConstructor
 public class LikeFeedActivity {
 
     @Id

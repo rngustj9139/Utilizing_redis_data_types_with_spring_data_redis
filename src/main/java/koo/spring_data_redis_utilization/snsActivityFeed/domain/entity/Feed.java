@@ -33,10 +33,4 @@ public class Feed {
         user.getSelfWriteFeedList().add(this);
     }
 
-    //== 연관관계 편의 메서드 ==//
-    public void setLikeFeedActivity(LikeFeedActivity likeFeedActivity) {
-        this.likeFeedActivity = likeFeedActivity;
-        likeFeedActivity.setFeed(this);
-    }
-
 }

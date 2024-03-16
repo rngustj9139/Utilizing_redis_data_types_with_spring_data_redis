@@ -1,10 +1,8 @@
 package koo.spring_data_redis_utilization.snsActivityFeed.domain.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
+@Getter @Setter
 public class FeedSaveRequestDto {
 
     public Long userId;

@@ -1,6 +1,7 @@
 package koo.spring_data_redis_utilization.snsActivityFeed.api;
 
 import koo.spring_data_redis_utilization.snsActivityFeed.domain.dto.FeedSaveRequestDto;
+import koo.spring_data_redis_utilization.snsActivityFeed.domain.dto.GetActivityFeedListRequestDto;
 import koo.spring_data_redis_utilization.snsActivityFeed.domain.dto.LikeFeedRequestDto;
 import koo.spring_data_redis_utilization.snsActivityFeed.domain.entity.Feed;
 import koo.spring_data_redis_utilization.snsActivityFeed.domain.entity.LikeFeedActivity;
@@ -51,8 +52,13 @@ public class FeedRestController {
     }
 
     @GetMapping("/api/feed")
-    public List<Feed> getActivityFeedList(@RequestBody ) {
+    public List<String> getActivityFeedList(@RequestBody GetActivityFeedListRequestDto getActivityFeedListRequestDto) {
+        Long userId = getActivityFeedListRequestDto.getUserId();
+        User user = userService.findById(userId);
 
+        List<String> range = feedService.getFanOutFeedList(user);
+
+        return range;
     }
 
 }

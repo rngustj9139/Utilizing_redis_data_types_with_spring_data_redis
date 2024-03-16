@@ -20,7 +20,7 @@ public class FeedService {
     private final SnsActivityFeedRedisRepository snsActivityFeedRedisRepository;
 
     public void save(Feed feed) {
-        feedRepository.save(feed);
+        feedRepository.saveAndFlush(feed);
     }
 
     public Feed findById(Long feedId) {
@@ -33,8 +33,10 @@ public class FeedService {
         return result;
     }
 
-    public List<Feed> getFanOutFeedList() {
-        snsActivityFeedRedisRepository.getLikeActivity();
+    public List<String> getFanOutFeedList(User user) {
+        List<String> range = snsActivityFeedRedisRepository.getLikeActivity(user);
+
+        return range;
     }
 
 }

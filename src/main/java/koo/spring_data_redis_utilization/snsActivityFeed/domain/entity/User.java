@@ -1,13 +1,16 @@
 package koo.spring_data_redis_utilization.snsActivityFeed.domain.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @NoArgsConstructor
+@Getter @Setter
 public class User {
 
     @Id
@@ -16,7 +19,7 @@ public class User {
     private Long id;
 
     @OneToMany(mappedBy = "user")
-    private List<Feed> selfWritePostList = new ArrayList<>(); // 작성한 게시글 리스트
+    private List<Feed> selfWriteFeedList = new ArrayList<>(); // 작성한 게시글 리스트
 
     @OneToMany(mappedBy = "user")
     private List<LikeFeedActivity> likeFeed = new ArrayList<>(); // 좋아요 누른 피드 리스트

@@ -1,10 +1,13 @@
 package koo.spring_data_redis_utilization.snsActivityFeed.domain.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @NoArgsConstructor
+@Getter @Setter
 public class Feed {
 
     @Id
@@ -18,10 +21,22 @@ public class Feed {
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "likeFeedActivity_id")
-    private LikeFeedActivity correspondingLikeFeedActivity;
+    private LikeFeedActivity likeFeedActivity;
 
     private Integer likeCount; // 좋아요 수
 
     private String content; // 작성글 내용
+
+    //== 연관관계 편의 메서드 ==//
+    public void setUser(User user) {
+        this.user = user;
+        user.getSelfWriteFeedList().add(this);
+    }
+
+    //== 연관관계 편의 메서드 ==//
+    public void setLikeFeedActivity(LikeFeedActivity likeFeedActivity) {
+        this.likeFeedActivity = likeFeedActivity;
+        likeFeedActivity.setFeed(this);
+    }
 
 }

@@ -18,3 +18,7 @@
 # [기능3 - SNS 활동 피드(Fan Out) 기능]
 ![image](https://github.com/rngustj9139/Utilizing_redis_data_types_with_spring_data_redis/assets/43543906/1b7b886a-ecc0-441f-9f7b-6de8efe9736a)
 
+# [기능4 - Shopping Cart(장바구니) 기능]
+![image](https://github.com/rngustj9139/Utilizing_redis_data_types_with_spring_data_redis/assets/43543906/d366167e-3b8d-44be-9d0f-74c2627c7016)
+
+

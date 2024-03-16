@@ -29,7 +29,7 @@ public class SnsActivityFeedRedisRepository {
     public void getLikeActivity() {
         redisTemplate
                 .opsForList()
-                .range();
+                .
     }
 
 }

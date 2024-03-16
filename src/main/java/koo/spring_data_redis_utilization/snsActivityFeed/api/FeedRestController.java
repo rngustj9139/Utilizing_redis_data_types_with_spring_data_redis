@@ -12,6 +12,8 @@ import koo.spring_data_redis_utilization.snsActivityFeed.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 public class FeedRestController {
@@ -46,6 +48,11 @@ public class FeedRestController {
         Long result = feedService.setFanOutFeedList(likeFeedRequestDto.getUserId(), likeFeedRequestDto.getFeedId());
 
         return result;
+    }
+
+    @GetMapping("/api/feed")
+    public List<Feed> getActivityFeedList(@RequestBody ) {
+
     }
 
 }

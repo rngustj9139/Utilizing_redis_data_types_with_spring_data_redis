@@ -1,6 +1,7 @@
 package koo.shoppingCart.service;
 
 import koo.shoppingCart.domain.entity.Item;
+import koo.shoppingCart.repository.ItemRepository;
 import koo.shoppingCart.repository.ShoppingCartRedisRepository;
 import koo.spring_data_redis_utilization.snsActivityFeed.domain.entity.User;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +19,7 @@ public class ItemService {
 
     private final ShoppingCartRedisRepository shoppingCartRedisRepository;
 
-    private final
+    private final ItemRepository itemRepository;
 
     public Long add(User user, Item item) {
         Long result = shoppingCartRedisRepository.add(user, item);
@@ -33,9 +34,9 @@ public class ItemService {
         for (String result : results) {
             String[] splitResult = result.split(":");// (e.g. user:1:cart, item:1:cart)
 
+            Item item = itemRepository.findById(Long.valueOf(splitResult[5])).orElseThrow();
 
-
-            savedItemList.add();
+            savedItemList.add(item);
         }
 
         return savedItemList;

@@ -18,7 +18,7 @@ public class ShoppingCartRedisRepository {
     public Long add(User user, Item item) {
         Long result = redisTemplate
                 .opsForSet()
-                .add("user:" + Long.toString(user.getId()) + ":cart", "item:" + Long.toString(item.getId()));// SADD
+                .add("user:" + Long.toString(user.getId()) + ":cart", "item:" + Long.toString(item.getId()) + ":cart");// SADD (e.g. user:1:cart, item:1:cart)
 
         return result;
     }

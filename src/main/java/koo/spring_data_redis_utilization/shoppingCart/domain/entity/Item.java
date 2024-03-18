@@ -1,4 +1,4 @@
-package koo.shoppingCart.domain.entity;
+package koo.spring_data_redis_utilization.shoppingCart.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -17,12 +17,12 @@ public class Item {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
-    private User user;
+    private ShoppingCartUser shoppingCartUser;
 
     //== 연관관계 편의 메서드 ==//
-    public void setUser(User user) {
-        this.user = user;
-        user.getItems().add(this);
+    public void setShoppingCartUser(ShoppingCartUser shoppingCartUser) {
+        this.shoppingCartUser = shoppingCartUser;
+        shoppingCartUser.getItems().add(this);
     }
 
 }

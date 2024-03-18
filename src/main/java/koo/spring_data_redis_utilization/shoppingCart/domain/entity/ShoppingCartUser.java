@@ -1,4 +1,4 @@
-package koo.shoppingCart.domain.entity;
+package koo.spring_data_redis_utilization.shoppingCart.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -11,14 +11,14 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @Getter @Setter
-public class User {
+public class ShoppingCartUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Long id;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "shoppingCartUser")
     private List<Item> items = new ArrayList<>();
 
 }

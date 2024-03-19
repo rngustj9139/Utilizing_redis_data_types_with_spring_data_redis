@@ -21,10 +21,21 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.cors().disable()
-                .csrf().disable()
-                .formLogin().disable()
-                .headers().frameOptions().disable();
+        http
+                .cors((corsConfig) ->
+                    corsConfig.disable()
+                )
+                .csrf((csrfConfig) ->
+                    csrfConfig.disable()
+                )
+                .headers((headerConfig) ->
+                    headerConfig.frameOptions(frameOptionsConfig ->
+                        frameOptionsConfig.disable()
+                    )
+                )
+                .formLogin((formLogin) ->
+                    formLogin.disable()
+                );
 
         return http.build();
     }

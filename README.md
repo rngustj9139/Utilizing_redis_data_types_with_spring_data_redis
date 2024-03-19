@@ -21,4 +21,7 @@
 # [기능5 - Shopping Cart(장바구니) 기능]
 ![image](https://github.com/rngustj9139/Utilizing_redis_data_types_with_spring_data_redis/assets/43543906/d366167e-3b8d-44be-9d0f-74c2627c7016)
 
+# [기능6 - Login Session(로그인 세션) 기능]
+![image](https://github.com/rngustj9139/Utilizing_redis_data_types_with_spring_data_redis/assets/43543906/2ef9d897-8607-4d75-8980-36989579ef7a)
+
 
